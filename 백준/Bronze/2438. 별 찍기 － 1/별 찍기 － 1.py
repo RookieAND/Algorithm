@@ -1,0 +1,1 @@
+list(map(lambda x : print("*" * x), range(1, int(input()) + 1)))
