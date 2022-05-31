@@ -29,9 +29,12 @@ def bfs(start):
 result, is_hacked = [], 0
 for i in range(1, N + 1):
     can_hacked = bfs(i)
+    # 만약 더 많은 컴퓨터를 해킹할 수 있는 노드가 나온다면,
+    # 기존에 저장했던 목록을 초기화하고 새롭게 목록을 할당.
     if is_hacked < can_hacked:
         is_hacked = can_hacked
         result = [i]
+    # 최댓값과 같은 수량의 컴퓨터를 해킹할 수 있다면 목록에 추가함.
     elif is_hacked == can_hacked:
         result.append(i)
 
