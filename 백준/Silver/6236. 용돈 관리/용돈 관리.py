@@ -9,7 +9,6 @@ costs = [int(read()) for _ in range(N)]
 # 지출 비용의 총합보다는 인출 금액이 작아야 하므로, 끝 지점은 지출 비용의 총합으로 설정.
 start, end, result = max(costs), sum(costs), sum(costs)
 
-
 def check(K):
     count, current = 1, K
     for cost in costs:
@@ -29,10 +28,9 @@ while start <= end:
     # 만약 인출 횟수가 많거나 -1이 나왔다면, 금액 상향
     if check_count > M:
         start = mid + 1
+        continue
     # 그렇지 않다면 금액 범위를 낮추고, 정답을 추출함.
-    else:
-        # 반복 횟수가 같다면, 더 적은 금액을 채택해야 함.
-        end = mid - 1
-        result = min(result, mid)
+    end = mid - 1
+    result = mid
 
 print(result)
