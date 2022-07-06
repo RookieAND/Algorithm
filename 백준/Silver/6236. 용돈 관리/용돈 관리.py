@@ -10,7 +10,7 @@ costs = [int(read()) for _ in range(N)]
 start, end, result = max(costs), sum(costs), sum(costs)
 
 def check(K):
-    count, current = 1, K
+    count, current = 0, 0
     for cost in costs:
         # 현재 보유 금액이 지출 비용보다 더 적을 경우,
         # K원을 새롭게 꺼내어 지갑에 충전시켜야 함.
