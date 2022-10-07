@@ -1,4 +1,4 @@
-# [Silver III] ATM - 11399 
+# [Silver IV] ATM - 11399 
 
 [문제 링크](https://www.acmicpc.net/problem/11399) 
 
