@@ -42,5 +42,3 @@ function findLand(y, x, maps, visited) {
 	}
 	return landSize;
 }
-
-solution(["X591X", "X1X5X", "X231X", "1XXX1"]);
