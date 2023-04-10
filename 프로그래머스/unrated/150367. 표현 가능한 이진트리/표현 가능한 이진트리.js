@@ -1,4 +1,3 @@
-// 이진 트리 순회 중, 중위 순회로 구현해야 하는 문제
 // 1. 주어진 십진수를 이진수로 변환한다.
 // 2. 해당 숫자를 가운데를 기준으로 좌우를 나누어 유효한 트리인지를 판단한다.
 // 3. 유효한 트리인지를 판단하는 기준은 현재 분할된 "루트 노드" 가 0인지를 판단하자.
@@ -22,7 +21,7 @@ function solution(numbers) {
     for (const binaryLength of possibleBinaryTreeLength) {
       // 포화 이진트리를 이루기 위한 길이를 구했다면, 그만큼 0을 추가해준다.
       if (binaryLength >= currentLength) {
-        binary = binary.padStart(binaryLength, '0');
+        binary = binary.padStart(binaryLength, "0");
         break;
       }
     }
@@ -33,13 +32,15 @@ function solution(numbers) {
 
   function divideTree(binary) {
     const currentLength = binary.length;
-    if (currentLength === 1 || !binary.includes('1') || !binary.includes('0')) {
+    // 현재 트리의 길이가 1이거나, 전부 0 혹은 1로만 이루어진 경우라면 true
+    const isAllSame = new Set(binary.split("")).size === 1;
+    if (currentLength === 1 || isAllSame) {
       return true;
     }
 
     const middleIndex = Math.floor(currentLength / 2);
     // 루트 노드가 0이라면 false를 반환해야 한다.
-    if (binary[middleIndex] == '0') return false;
+    if (binary[middleIndex] == "0") return false;
     // 트리의 길이가 1이 아니라면, 또 중간을 나눠서 분할 재귀를 시행한다.
     return (
       divideTree(binary.slice(0, middleIndex)) &&
@@ -47,3 +48,5 @@ function solution(numbers) {
     );
   }
 }
+
+console.log(solution([63, 111, 95]));
