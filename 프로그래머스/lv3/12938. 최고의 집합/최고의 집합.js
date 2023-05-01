@@ -8,7 +8,7 @@ function solution(n, s) {
   const rest = s % n;
   if (rest === 0) return new Array(n).fill(s / n);
 
-  // 그게 아니라면, 나머지를 균등하게 나눠서 추가해준 후 배열을 뒤집는다 (오름차순)
+  // 그게 아니라면, 나머지를 균등하게 나눠서 추가해준 후 배열을 뒤집는다
   const result = new Array(n).fill(Math.floor(s / n));
   for (let i = 0; i < rest; i++) {
     result[i] += 1;
