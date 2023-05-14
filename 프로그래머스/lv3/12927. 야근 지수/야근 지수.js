@@ -6,24 +6,22 @@ function solution(n, works) {
   let wholeWorks = works.reduce((acc, cur) => acc + cur, 0);
   if (wholeWorks <= n) return 0;
 
-  const result = works.sort((a, b) => a - b);
+  works.sort((a, b) => a - b);
   const workAmount = works.length;
 
   while (n > 0) {
-    const biggestWork = result.at(-1);
+    const biggestWork = works.at(-1);
     for (let i = workAmount - 1; i >= 0; i--) {
-      if (result[i] >= biggestWork) {
-        result[i]--;
+      if (works[i] >= biggestWork) {
+        works[i]--;
         n--;
       }
       if (!n) break;
     }
   }
 
-  return result.reduce((acc, cur) => acc + cur ** 2, 0);
+  return works.reduce((acc, cur) => acc + cur ** 2, 0);
 }
-
-console.log(solution(2, [3, 5, 6, 8]));
 
 // // 오답 : 효율성 테스트 실패
 // function solution(n, works) {
